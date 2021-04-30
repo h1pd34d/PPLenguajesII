@@ -3,9 +3,9 @@ import java.util.Scanner;
 
 
 
-public class Vehiculo {
+public abstract class  Vehiculo  {
     Scanner color_seleccionado = new Scanner(System.in);
-    int seleccion;
+    int seleccion_c;
     private Color color;
     private final String referencia;
     private final int velocidadMaxima;
@@ -17,21 +17,21 @@ public class Vehiculo {
 
         System.out.println("Seleccione el color para el vehiculo");
         System.out.println("[1]NEGRO - [2]BLANCO - [3]AZUL - [4]VERDE - [5]GRIS");
-        seleccion = color_seleccionado.nextInt();
+        seleccion_c = color_seleccionado.nextInt();
 
-        if (seleccion == 1){
+        if (seleccion_c == 1){
             this.color = Color.NEGRO;
         }
-        else if (seleccion == 2){
+        else if (seleccion_c == 2){
             this.color = Color.BLANCO;
         }
-        else if (seleccion == 3){
+        else if (seleccion_c == 3){
             this.color = Color.AZUL;
         }
-        else if (seleccion == 4){
+        else if (seleccion_c == 4){
             this.color = Color.VERDE;
         }
-        else if (seleccion == 5){
+        else if (seleccion_c == 5){
             this.color = Color.GRIS;
         }
         else{
@@ -53,12 +53,6 @@ public class Vehiculo {
         return color;
     }
 
-    public String getReferencia() {
-        return referencia;
-    }
 
-    public int getVelocidadMaxima() {
-        return velocidadMaxima;
-    }
 }
 

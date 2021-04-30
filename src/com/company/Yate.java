@@ -1,21 +1,14 @@
 package com.company;
 
 public class Yate extends Vehiculo {
-    public String tipo = "Yate";
-    public float pesoMaximo;
+    private String tipo;
+    private int pesoMaximo;
 
-    public Yate( String referencia, int velocidadMaxima, int pesoMaximo) {
+
+    public Yate(String referencia, int velocidadMaxima) {
         super(referencia, velocidadMaxima);
-        this.tipo = tipo;
-        this.pesoMaximo = pesoMaximo;
-    }
-
-    public float getPesoMaximo() {
-        return pesoMaximo;
-    }
-
-    public String getTipo() {
-        return tipo;
+        this.tipo = YateBuilder.tipo;
+        this.pesoMaximo = YateBuilder.pesoMaximo;
     }
 
     @Override
@@ -24,5 +17,36 @@ public class Yate extends Vehiculo {
                 + super.toString() + " \n" +
                 "Peso Maximo " + pesoMaximo + " Kilos " + "\n";
 
+    }
+
+    public static class YateBuilder{
+        public static String tipo = "Yate";
+        public static int pesoMaximo;
+        private String referencia;
+        private int velocidadMaxima;
+
+        public YateBuilder tipo(String tipo){
+            this.tipo = tipo;
+            return this;
+        }
+
+        public YateBuilder pesoMaximo(int pesoMaximo){
+            this.pesoMaximo = pesoMaximo;
+            return this;
+        }
+
+        public YateBuilder referencia(String referencia){
+            this.referencia = referencia;
+            return this;
+        }
+
+        public YateBuilder velocidadMaxima(int velocidadMaxima){
+            this.velocidadMaxima = velocidadMaxima;
+            return this;
+        }
+
+        public Yate build(){
+            return new Yate(referencia,velocidadMaxima);
+        }
     }
 }

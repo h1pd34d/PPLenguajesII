@@ -1,22 +1,16 @@
 package com.company;
 
-public class Carro extends Vehiculo{
-    public String tipo = "Carro";
-    public int numeroDePuertas;
+public class Carro extends Vehiculo {
+    private String tipo;
+    private int numeroDePuertas;
 
-    public Carro( String referencia, int velocidadMaxima, int numeroDePuertas) {
-        super( referencia, velocidadMaxima);
-        this.tipo = tipo;
-        this.numeroDePuertas = numeroDePuertas;
+
+    public Carro(String referencia, int velocidadMaxima) {
+        super(referencia, velocidadMaxima);
+        this.tipo = CarroBuilder.tipo;
+        this.numeroDePuertas = CarroBuilder.numeroDePuertas;
     }
 
-    public String getTipo() {
-        return tipo;
-    }
-
-    public int getNumeroDePuertas() {
-        return numeroDePuertas;
-    }
     @Override
     public String toString() {
         return "Tipo de Vehiculo: "+ tipo + " \n"
@@ -25,4 +19,34 @@ public class Carro extends Vehiculo{
 
     }
 
+    public static class CarroBuilder{
+        public static String tipo = "Carro";
+        public static int numeroDePuertas;
+        private String referencia;
+        private int velocidadMaxima;
+
+        public CarroBuilder tipo(String tipo){
+            this.tipo = tipo;
+            return this;
+        }
+
+        public CarroBuilder numeroDePuertas(int numeroDePuertas){
+            this.numeroDePuertas = numeroDePuertas;
+            return this;
+        }
+
+        public CarroBuilder referencia(String referencia){
+            this.referencia = referencia;
+            return this;
+        }
+
+        public CarroBuilder velocidadMaxima(int velocidadMaxima){
+            this.velocidadMaxima = velocidadMaxima;
+            return this;
+        }
+
+        public Carro build(){
+            return new Carro(referencia,velocidadMaxima);
+        }
+    }
 }
