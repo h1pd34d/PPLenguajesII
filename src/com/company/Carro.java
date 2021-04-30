@@ -5,8 +5,8 @@ public class Carro extends Vehiculo {
     private int numeroDePuertas;
 
 
-    public Carro(String referencia, int velocidadMaxima) {
-        super(referencia, velocidadMaxima);
+    public Carro(String referencia, int velocidadMaxima, Color color) {
+        super(referencia, velocidadMaxima, color);
         this.tipo = CarroBuilder.tipo;
         this.numeroDePuertas = CarroBuilder.numeroDePuertas;
     }
@@ -24,6 +24,7 @@ public class Carro extends Vehiculo {
         public static int numeroDePuertas;
         private String referencia;
         private int velocidadMaxima;
+        private Color color;
 
         public CarroBuilder tipo(String tipo){
             this.tipo = tipo;
@@ -46,7 +47,7 @@ public class Carro extends Vehiculo {
         }
 
         public Carro build(){
-            return new Carro(referencia,velocidadMaxima);
+            return new Carro(referencia,velocidadMaxima, color);
         }
     }
 }

@@ -1,44 +1,23 @@
 package com.company;
-import java.util.Scanner;
+import com.company.factory.ColorFactory;
 
 
 
-public abstract class  Vehiculo  {
-    Scanner color_seleccionado = new Scanner(System.in);
-    int seleccion_c;
-    private Color color;
+
+public abstract class  Vehiculo extends ColorFactory {
+
     private final String referencia;
     private final int velocidadMaxima;
+    private Color color;
 
-
-    public Vehiculo(String referencia, int velocidadMaxima) {
+    public Vehiculo(String referencia, int velocidadMaxima, Color color) {
+        super(color);
+        this.color = getColor();
         this.referencia = referencia;
         this.velocidadMaxima = velocidadMaxima;
 
-        System.out.println("Seleccione el color para el vehiculo");
-        System.out.println("[1]NEGRO - [2]BLANCO - [3]AZUL - [4]VERDE - [5]GRIS");
-        seleccion_c = color_seleccionado.nextInt();
-
-        if (seleccion_c == 1){
-            this.color = Color.NEGRO;
-        }
-        else if (seleccion_c == 2){
-            this.color = Color.BLANCO;
-        }
-        else if (seleccion_c == 3){
-            this.color = Color.AZUL;
-        }
-        else if (seleccion_c == 4){
-            this.color = Color.VERDE;
-        }
-        else if (seleccion_c == 5){
-            this.color = Color.GRIS;
-        }
-        else{
-            System.out.println("Seleccion Invalida");
-        }
-
     }
+
 
     /* Sobreescritura del .ToString */
     @Override
@@ -49,9 +28,7 @@ public abstract class  Vehiculo  {
 
     }
 
-    public Color getColor() {
-        return color;
-    }
+
 
 
 }
