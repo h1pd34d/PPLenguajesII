@@ -5,8 +5,8 @@ public class Avion extends Vehiculo {
     private int altitudMaxima;
 
 
-    public Avion(String referencia, int velocidadMaxima, Color color) {
-        super(referencia, velocidadMaxima, color);
+    public Avion(String referencia, int velocidadMaxima) {
+        super(referencia, velocidadMaxima);
         this.tipo = AvionBuilder.tipo;
         this.altitudMaxima = AvionBuilder.altitudMaxima;
     }
@@ -47,7 +47,11 @@ public class Avion extends Vehiculo {
         }
 
         public Avion build(){
-            return new Avion(referencia,velocidadMaxima, color);
+            return new Avion(referencia,velocidadMaxima);
         }
+    }
+
+    public String getReferencia(){
+        return this.referencia;
     }
 }

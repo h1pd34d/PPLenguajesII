@@ -4,9 +4,8 @@ public class Yate extends Vehiculo {
     private String tipo;
     private int pesoMaximo;
 
-
-    public Yate(String referencia, int velocidadMaxima, Color color) {
-        super(referencia, velocidadMaxima, color);
+    public Yate(String referencia, int velocidadMaxima) {
+        super(referencia, velocidadMaxima);
         this.tipo = YateBuilder.tipo;
         this.pesoMaximo = YateBuilder.pesoMaximo;
     }
@@ -46,8 +45,13 @@ public class Yate extends Vehiculo {
             return this;
         }
 
+
         public Yate build(){
-            return new Yate(referencia,velocidadMaxima, color);
+            return new Yate(referencia,velocidadMaxima);
         }
+    }
+
+    public String getReferencia(){
+        return this.referencia;
     }
 }
